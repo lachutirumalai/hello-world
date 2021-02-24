@@ -22,9 +22,7 @@ jobs:
       - run:
           name: "Print the project owner" 
           command: | 
-            echo $Owner
-          environment:
-            Owner: Lachu Tirumalai
+            echo $ProjectOwner
                 
 workflows:
   # Name the workflow "welcome"
