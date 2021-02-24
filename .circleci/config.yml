@@ -21,7 +21,8 @@ jobs:
       - run: echo "world"
       - run:
           name: "Print the project owner" 
-          command: echo $Owner
+          command: | 
+            echo $Owner
           environment:
             Owner: Lachu Tirumalai
                 
