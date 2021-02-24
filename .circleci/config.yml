@@ -18,11 +18,10 @@ jobs:
     docker:
     - image: circleci/node:13.8.0
     steps:
-      - run: echo "world"
-      - run:
-          name: "Print the project owner" 
-          command: echo ${ProjectOwner}
-              
+      - run: 
+          command:echo "world"
+          command:echo $ProjectOwner
+                
 workflows:
   # Name the workflow "welcome"
   welcome:
