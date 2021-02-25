@@ -12,18 +12,24 @@ jobs:
     - image: circleci/node:13.8.0
     steps:
       - run: echo "hello"
-
+      
   #print world
   build_print_world:
     docker:
     - image: circleci/node:13.8.0
     steps:
-      - run: echo "world"
-      - run:
-          name: "Print the project owner" 
-          command: | 
-            echo $ProjectOwner
-                
+      - run: echo "text to output here" > output.txt
+      - persist_to_workspace:  
+          root: /tmp/workspace
+          paths: 
+            - hello
+  print_output_file:
+    docker:
+    - image: circleci/node:13.8.0
+    steps:
+    - attach_workspace:
+        at: /tmp/workspace
+    - run: cat output.txt                    
 workflows:
   # Name the workflow "welcome"
   welcome:
@@ -34,3 +40,4 @@ workflows:
       - build_print_world:
           requires:
             - build_print_hello
+      - print_output_file
