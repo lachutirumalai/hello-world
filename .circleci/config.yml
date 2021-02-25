@@ -41,4 +41,6 @@ workflows:
       - build_print_world:
           requires:
             - build_print_hello
-      - print_output_file
+      - print_output_file:
+          requires:
+            - build_print_world
