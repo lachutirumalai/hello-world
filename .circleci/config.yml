@@ -44,9 +44,9 @@ workflows:
     jobs:
       - welcome/run
       - build_print_hello
-      - build_print_world:
-          requires:
-            - build_print_hello
-      - print_output_file:
-          requires:
-            - build_print_world
+      #- build_print_world:
+      #    requires:
+      #      - build_print_hello
+      #- print_output_file:
+      #    requires:
+      #      - build_print_world
